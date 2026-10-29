@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "EmpanadaEmpire/1.0.0": {
+        "runtime": {
+          "EmpanadaEmpire.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "EmpanadaEmpire/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
