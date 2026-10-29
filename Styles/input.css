@@ -1,0 +1,12 @@
+@import "tailwindcss";
+
+@theme {
+  /* Set your fonts */
+  --font-sans: "Plus Jakarta Sans", sans-serif;
+  --font-serif: "Playfair Display", serif;
+
+  /* Optional: You can also define brand colors here */
+  --color-bakery-terracotta: #b84a2b;
+  --color-bakery-cream: #faf7f2;
+  --color-bakery-dark: #26201a;
+}
