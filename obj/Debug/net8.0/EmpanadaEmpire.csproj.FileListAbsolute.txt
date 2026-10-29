@@ -28,3 +28,4 @@ C:\Users\L23Y16W03\Downloads\Sprint\Midterms\EmpanadaEmpireRevised\EmpanadaEmpir
 C:\Users\L23Y16W03\Downloads\Sprint\Midterms\EmpanadaEmpireRevised\EmpanadaEmpire\obj\Debug\net8.0\ref\EmpanadaEmpire.dll
 C:\Users\L23Y16W03\Downloads\Sprint\Midterms\EmpanadaEmpireRevised\EmpanadaEmpire\bin\Debug\net8.0\package-lock.json
 C:\Users\L23Y16W03\Downloads\Sprint\Midterms\EmpanadaEmpireRevised\EmpanadaEmpire\bin\Debug\net8.0\package.json
+C:\Users\L23Y16W03\Downloads\Sprint\Midterms\EmpanadaEmpireRevised\EmpanadaEmpire\obj\Debug\net8.0\EmpanadaEmpire.sourcelink.json
