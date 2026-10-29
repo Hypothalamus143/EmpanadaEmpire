@@ -1,0 +1,41 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\L23Y16W03\\Downloads\\Sprint\\Midterms\\EmpanadaEmpireRevised\\EmpanadaEmpire\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\EmpanadaEmpire.bundle.scp.css",
+      "PackagePath": "staticwebassets\\EmpanadaEmpire.bundle.scp.css"
+    },
+    {
+      "Id": "C:\\Users\\L23Y16W03\\Downloads\\Sprint\\Midterms\\EmpanadaEmpireRevised\\EmpanadaEmpire\\wwwroot\\app.css",
+      "PackagePath": "staticwebassets\\app.css"
+    },
+    {
+      "Id": "C:\\Users\\L23Y16W03\\Downloads\\Sprint\\Midterms\\EmpanadaEmpireRevised\\EmpanadaEmpire\\wwwroot\\bootstrap\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\bootstrap\\bootstrap.min.css"
+    },
+    {
+      "Id": "C:\\Users\\L23Y16W03\\Downloads\\Sprint\\Midterms\\EmpanadaEmpireRevised\\EmpanadaEmpire\\wwwroot\\bootstrap\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\bootstrap\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\L23Y16W03\\Downloads\\Sprint\\Midterms\\EmpanadaEmpireRevised\\EmpanadaEmpire\\wwwroot\\favicon.png",
+      "PackagePath": "staticwebassets\\favicon.png"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.EmpanadaEmpire.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.EmpanadaEmpire.props",
+      "PackagePath": "build\\EmpanadaEmpire.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.EmpanadaEmpire.props",
+      "PackagePath": "buildMultiTargeting\\EmpanadaEmpire.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.EmpanadaEmpire.props",
+      "PackagePath": "buildTransitive\\EmpanadaEmpire.props"
+    }
+  ],
+  "ElementsToRemove": []
+}
