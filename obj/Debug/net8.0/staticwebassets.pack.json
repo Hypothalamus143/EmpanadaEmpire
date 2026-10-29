@@ -9,18 +9,6 @@
       "PackagePath": "staticwebassets\\app.css"
     },
     {
-      "Id": "C:\\Users\\L23Y16W03\\Downloads\\Sprint\\Midterms\\EmpanadaEmpireRevised\\EmpanadaEmpire\\wwwroot\\bootstrap\\bootstrap.min.css",
-      "PackagePath": "staticwebassets\\bootstrap\\bootstrap.min.css"
-    },
-    {
-      "Id": "C:\\Users\\L23Y16W03\\Downloads\\Sprint\\Midterms\\EmpanadaEmpireRevised\\EmpanadaEmpire\\wwwroot\\bootstrap\\bootstrap.min.css.map",
-      "PackagePath": "staticwebassets\\bootstrap\\bootstrap.min.css.map"
-    },
-    {
-      "Id": "C:\\Users\\L23Y16W03\\Downloads\\Sprint\\Midterms\\EmpanadaEmpireRevised\\EmpanadaEmpire\\wwwroot\\favicon.png",
-      "PackagePath": "staticwebassets\\favicon.png"
-    },
-    {
       "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.EmpanadaEmpire.Microsoft.AspNetCore.StaticWebAssets.props",
       "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
     },

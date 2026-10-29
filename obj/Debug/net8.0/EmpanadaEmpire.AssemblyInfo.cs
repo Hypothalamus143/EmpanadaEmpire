@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("EmpanadaEmpire")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d28ce63602e86608db79a3104d89b5d267c41c09")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5895c2bc28753f0ae4c2406db970b9b2bda4a547")]
 [assembly: System.Reflection.AssemblyProductAttribute("EmpanadaEmpire")]
 [assembly: System.Reflection.AssemblyTitleAttribute("EmpanadaEmpire")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
