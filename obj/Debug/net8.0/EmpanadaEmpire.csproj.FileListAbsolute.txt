@@ -19,7 +19,6 @@ C:\Users\L23Y16W03\Downloads\Sprint\Midterms\EmpanadaEmpireRevised\EmpanadaEmpir
 C:\Users\L23Y16W03\Downloads\Sprint\Midterms\EmpanadaEmpireRevised\EmpanadaEmpire\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.EmpanadaEmpire.props
 C:\Users\L23Y16W03\Downloads\Sprint\Midterms\EmpanadaEmpireRevised\EmpanadaEmpire\obj\Debug\net8.0\staticwebassets.pack.json
 C:\Users\L23Y16W03\Downloads\Sprint\Midterms\EmpanadaEmpireRevised\EmpanadaEmpire\obj\Debug\net8.0\scopedcss\Components\Layout\MainLayout.razor.rz.scp.css
-C:\Users\L23Y16W03\Downloads\Sprint\Midterms\EmpanadaEmpireRevised\EmpanadaEmpire\obj\Debug\net8.0\scopedcss\Components\Layout\NavMenu.razor.rz.scp.css
 C:\Users\L23Y16W03\Downloads\Sprint\Midterms\EmpanadaEmpireRevised\EmpanadaEmpire\obj\Debug\net8.0\scopedcss\bundle\EmpanadaEmpire.styles.css
 C:\Users\L23Y16W03\Downloads\Sprint\Midterms\EmpanadaEmpireRevised\EmpanadaEmpire\obj\Debug\net8.0\scopedcss\projectbundle\EmpanadaEmpire.bundle.scp.css
 C:\Users\L23Y16W03\Downloads\Sprint\Midterms\EmpanadaEmpireRevised\EmpanadaEmpire\obj\Debug\net8.0\EmpanadaEmpire.dll
@@ -27,3 +26,5 @@ C:\Users\L23Y16W03\Downloads\Sprint\Midterms\EmpanadaEmpireRevised\EmpanadaEmpir
 C:\Users\L23Y16W03\Downloads\Sprint\Midterms\EmpanadaEmpireRevised\EmpanadaEmpire\obj\Debug\net8.0\EmpanadaEmpire.pdb
 C:\Users\L23Y16W03\Downloads\Sprint\Midterms\EmpanadaEmpireRevised\EmpanadaEmpire\obj\Debug\net8.0\EmpanadaEmpire.genruntimeconfig.cache
 C:\Users\L23Y16W03\Downloads\Sprint\Midterms\EmpanadaEmpireRevised\EmpanadaEmpire\obj\Debug\net8.0\ref\EmpanadaEmpire.dll
+C:\Users\L23Y16W03\Downloads\Sprint\Midterms\EmpanadaEmpireRevised\EmpanadaEmpire\bin\Debug\net8.0\package-lock.json
+C:\Users\L23Y16W03\Downloads\Sprint\Midterms\EmpanadaEmpireRevised\EmpanadaEmpire\bin\Debug\net8.0\package.json
