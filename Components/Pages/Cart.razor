@@ -1,0 +1,398 @@
+@page "/cart"
+@rendermode InteractiveServer
+@using EmpanadaEmpire.Models.Cart
+@using EmpanadaEmpire.Models.Location
+@inject NavigationManager Nav
+
+<div class="min-h-screen bg-[#FAF7F2] text-[#26201A] flex flex-col justify-between selection:bg-[#B84A2B] selection:text-white">
+
+    <!-- TOP NAVIGATION -->
+    <header class="bg-[#FAF7F2] border-b border-[#EADFD4]/80 sticky top-0 z-30 backdrop-blur-md bg-opacity-90">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            
+            <!-- Brand Logo -->
+            <a href="/menu" class="flex items-center space-x-3 group">
+                <div class="w-10 h-10 rounded-full bg-[#F3E5D8] text-[#B84A2B] flex items-center justify-center transition-transform group-hover:scale-105">
+                    <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                        <path d="M12.5 2c-.3 0-.6.2-.7.4L9.4 6.7c-.4.7-.1 1.6.6 2 .7.4 1.6.1 2-.6l1.7-3.1 1.7 3.1c.4.7 1.3 1 2 .6.7-.4 1-1.3.6-2l-2.4-4.3c-.2-.3-.5-.4-.7-.4h-1.8zm-4.7 6.3c-.2.2-.3.5-.3.8 0 .8.6 1.4 1.4 1.4h4.2l-3.9 3.9c-.6.6-.6 1.5 0 2.1.6.6 1.5.6 2.1 0l3.9-3.9v4.2c0 .8.6 1.4 1.4 1.4.8 0 1.4-.6 1.4-1.4v-4.2l3.9 3.9c.6.6 1.5.6 2.1 0 .6-.6.6-1.5 0-2.1l-3.9-3.9h4.2c.8 0 1.4-.6 1.4-1.4 0-.3-.1-.6-.3-.8l-3.4-3.4c-.4-.4-1-.5-1.5-.3l-3.7 1.9-3.7-1.9c-.5-.2-1.1-.1-1.5.3L7.8 8.3z"/>
+                    </svg>
+                </div>
+                <div>
+                    <span class="font-serif text-lg tracking-wide font-medium text-[#231B15] block leading-tight">Empanada Empire</span>
+                    <span class="text-[9px] uppercase tracking-widest text-[#8A7B70] font-bold block">Baked with a little extra love</span>
+                </div>
+            </a>
+
+            <!-- Center Nav Links -->
+            <nav class="hidden md:flex items-center space-x-8 text-xs font-semibold tracking-wide">
+                <a href="/menu" class="text-[#7C6E65] hover:text-[#B84A2B] transition-colors pb-1">Our menu</a>
+                <a href="/orders" class="text-[#7C6E65] hover:text-[#B84A2B] transition-colors pb-1">My orders</a>
+                <a href="/kitchen" class="text-[#7C6E65] hover:text-[#B84A2B] transition-colors pb-1">Our kitchen</a>
+            </nav>
+
+            <!-- Right Controls -->
+            <div class="flex items-center space-x-4">
+                <div class="flex items-center space-x-2 px-3.5 py-2 rounded-full bg-[#F5ECE2] text-[#231B15] text-xs font-semibold shadow-sm">
+                    <svg class="w-4 h-4 text-[#B84A2B]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/>
+                    </svg>
+                    <span>Cart · @cart.TotalPieces</span>
+                </div>
+
+                <div class="w-9 h-9 rounded-full bg-[#E8DDD2] text-[#55463D] flex items-center justify-center font-bold text-xs ring-2 ring-white">
+                    MS
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN CONTAINER -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full flex-1">
+        
+        <!-- Breadcrumbs -->
+        <nav class="flex items-center space-x-2 text-xs text-[#8A7B70] mb-4">
+            <a href="/menu" class="hover:text-[#B84A2B] transition-colors">Our menu</a>
+            <span>›</span>
+            <span class="text-[#B84A2B] font-medium">Your cart</span>
+        </nav>
+
+        <!-- Page Title & Keep Exploring Link -->
+        <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-4 mb-8">
+            <div>
+                <h1 class="font-serif text-3xl sm:text-4xl text-[#231B15] font-normal">
+                    Happiness, by the handful.
+                </h1>
+                <p class="text-xs sm:text-sm text-[#77685D] mt-1">
+                    @cart.TotalPieces freshly baked @(cart.TotalPieces == 1 ? "empanada" : "empanadas"), ready to make your day.
+                </p>
+            </div>
+
+            <a href="/menu" class="inline-flex items-center space-x-1.5 text-xs font-semibold text-[#B84A2B] hover:text-[#9A381C] transition-colors group">
+                <svg class="w-4 h-4 transition-transform group-hover:-translate-x-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                </svg>
+                <span>Keep exploring</span>
+            </a>
+        </div>
+
+        @if (cart.Items.Count == 0)
+        {
+            <!-- Empty Bag State -->
+            <div class="bg-white rounded-3xl border border-[#E9DFD5] p-12 text-center max-w-lg mx-auto shadow-sm my-12">
+                <div class="w-16 h-16 bg-[#F8F1EB] text-[#B84A2B] rounded-full flex items-center justify-center mx-auto mb-4">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+                    </svg>
+                </div>
+                <h3 class="font-serif text-2xl text-[#231B15] mb-2">Your box is empty</h3>
+                <p class="text-xs text-[#7A6B61] mb-6">Looks like you haven't picked your pockets of happiness yet.</p>
+                <a href="/menu" class="inline-flex items-center space-x-2 px-6 py-3 rounded-xl bg-[#B84A2B] hover:bg-[#A13E22] text-white text-xs font-semibold shadow-md transition">
+                    <span>Explore our menu</span>
+                </a>
+            </div>
+        }
+        else
+        {
+            <!-- Two Column Cart Grid -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                
+                <!-- LEFT COLUMN: Cart Items & Delivery Address -->
+                <div class="lg:col-span-8 space-y-6">
+                    
+                    <!-- CART ITEMS CARD -->
+                    <div class="bg-white rounded-2xl border border-[#E9DFD5] p-6 shadow-sm">
+                        <!-- Table Sub-header -->
+                        <div class="grid grid-cols-12 text-[10px] uppercase font-bold tracking-wider text-[#998A7F] pb-4 border-b border-[#F0E6DC]">
+                            <div class="col-span-6 sm:col-span-7">In your bag · @cart.TotalPieces pieces</div>
+                            <div class="col-span-3 sm:col-span-3 text-center">Quantity</div>
+                            <div class="col-span-3 sm:col-span-2 text-right">Total</div>
+                        </div>
+
+                        <!-- Item Rows -->
+                        <div class="divide-y divide-[#F4ECE3]">
+                            @foreach (var item in cart.Items)
+                            {
+                                <div class="py-5 grid grid-cols-12 items-center gap-3">
+                                    <!-- Product Info & Thumb -->
+                                    <div class="col-span-6 sm:col-span-7 flex items-center space-x-4">
+                                        <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-xl bg-[#F4ECE3] overflow-hidden flex-shrink-0 border border-[#E9DFD5]">
+                                            <img src="@item.ImageUrl" alt="@item.Name" class="w-full h-full object-cover" />
+                                        </div>
+                                        <div>
+                                            <h4 class="font-serif text-base font-medium text-[#231B15] leading-snug">
+                                                @item.Name
+                                            </h4>
+                                            <p class="text-xs text-[#8A7B70] mt-0.5">
+                                                @item.FormattedUnitPrice / piece
+                                            </p>
+                                            <button @onclick="() => RemoveItem(item.ProductId)" 
+                                                    class="text-[11px] font-semibold text-[#B84A2B] hover:text-[#9A381C] mt-2 block transition-colors">
+                                                Remove
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                    <!-- Quantity Stepper -->
+                                    <div class="col-span-3 sm:col-span-3 flex justify-center">
+                                        <div class="inline-flex items-center space-x-3 bg-white border border-[#E2D5C9] rounded-xl px-2.5 py-1 shadow-sm">
+                                            <button @onclick="() => DecrementItem(item.ProductId)" 
+                                                    class="w-5 h-5 flex items-center justify-center text-[#7A6B61] hover:text-[#B84A2B] font-bold transition">
+                                                –
+                                            </button>
+                                            <span class="text-xs font-bold text-[#231B15] w-3 text-center">@item.Quantity</span>
+                                            <button @onclick="() => IncrementItem(item)" 
+                                                    class="w-5 h-5 flex items-center justify-center text-[#7A6B61] hover:text-[#B84A2B] font-bold transition">
+                                                +
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                    <!-- Subtotal -->
+                                    <div class="col-span-3 sm:col-span-2 text-right">
+                                        <span class="text-sm font-bold text-[#231B15]">
+                                            @item.FormattedSubtotal
+                                        </span>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+
+                    <!-- DELIVERY ADDRESS CARD -->
+                    <div class="bg-white rounded-2xl border border-[#E9DFD5] p-6 shadow-sm">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="flex items-center space-x-2 text-[#231B15]">
+                                <svg class="w-4 h-4 text-[#B84A2B]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 2a8 8 0 00-8 8c0 5.25 8 12 8 12s8-6.75 8-12a8 8 0 00-8-8zm0 11a3 3 0 110-6 3 3 0 010 6z" />
+                                </svg>
+                                <h3 class="text-sm font-bold text-[#231B15]">Bringing the bakery to you</h3>
+                            </div>
+
+                            <a href="/register" class="text-xs font-semibold text-[#B84A2B] hover:text-[#9A381C] transition-colors">
+                                Edit address
+                            </a>
+                        </div>
+
+                        <div class="flex flex-col sm:flex-row sm:items-start justify-between gap-4 text-xs text-[#5F5146] leading-relaxed">
+                            <div>
+                                <p class="font-bold text-[#231B15] text-sm">
+                                    @customerName · @customerPhone
+                                </p>
+                                <p class="mt-1">@customerAddress.StreetAddress</p>
+                                <p>@customerAddress.City, Cebu, @customerAddress.Country</p>
+                                @if (!string.IsNullOrWhiteSpace(customerAddress.Landmark))
+                                {
+                                    <p class="text-[#88776C] mt-1">Landmark: @customerAddress.Landmark</p>
+                                }
+                            </div>
+
+                            <div>
+                                <span class="inline-block px-3 py-1 rounded-full text-[10px] font-bold tracking-wider uppercase bg-[#E8F1E7] text-[#2D5A2B] border border-[#D5E3D3]">
+                                    Cebu City Delivery
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- RIGHT COLUMN: Order Summary ("A little box of joy") -->
+                <div class="lg:col-span-4 space-y-4">
+                    <div class="bg-white rounded-2xl border border-[#E9DFD5] p-6 shadow-sm space-y-6">
+                        
+                        <!-- Box Title -->
+                        <h2 class="font-serif text-2xl text-[#231B15] font-normal">
+                            A little box of joy
+                        </h2>
+
+                        <!-- Delivery Estimate Box -->
+                        <div class="flex items-center space-x-3 p-3.5 rounded-xl bg-[#EBF2EA] border border-[#D7E4D5] text-[#2D452B]">
+                            <div class="w-8 h-8 rounded-full bg-[#DCEADB] flex items-center justify-center flex-shrink-0 text-[#2E582A]">
+                                <svg class="w-4 h-4 fill-none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                    <circle cx="5.5" cy="17.5" r="3.5" />
+                                    <circle cx="18.5" cy="17.5" r="3.5" />
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 6h4l2 4-3 1-3.5-3.5M6 17.5l4-7.5h5l-2 5h-4" />
+                                </svg>
+                            </div>
+                            <div class="text-xs">
+                                <p class="font-bold text-[#1E3A1C]">At your door in 30–45 min</p>
+                                <p class="text-[#436440] text-[11px]">Freshly baked. Carefully delivered.</p>
+                            </div>
+                        </div>
+
+                        <!-- Price Breakdown -->
+                        <div class="space-y-3 text-xs text-[#5C4F44]">
+                            <div class="flex justify-between">
+                                <span>Subtotal (@cart.TotalPieces pieces)</span>
+                                <span class="font-medium text-[#231B15]">@cart.FormattedSubtotal</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>Delivery · Cebu City</span>
+                                <span class="font-medium text-[#231B15]">@cart.FormattedDeliveryFee</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>Packaging</span>
+                                <span class="font-medium text-[#231B15]">On us</span>
+                            </div>
+                        </div>
+
+                        <!-- Total Divider & Amount -->
+                        <div class="pt-4 border-t border-[#F0E6DC]">
+                            <div class="flex items-baseline justify-between">
+                                <span class="font-bold text-sm text-[#231B15]">Total</span>
+                                <span class="font-bold text-2xl text-[#231B15]">@cart.FormattedTotal</span>
+                            </div>
+                            <p class="text-[10px] text-[#998A7F] mt-1">
+                                All prices in Philippine pesos. Taxes included.
+                            </p>
+                        </div>
+
+                        <!-- Kitchen instructions text area -->
+                        <div>
+                            <label class="block text-xs font-semibold text-[#3C322A] mb-1.5" for="kitchenNotes">
+                                Anything we should know? <span class="text-[#8A7B70] font-normal">(optional)</span>
+                            </label>
+                            <textarea id="kitchenNotes" 
+                                      rows="3" 
+                                      @bind="cart.KitchenInstructions"
+                                      placeholder="Delivery instructions or a little note for our kitchen..." 
+                                      class="w-full p-3 rounded-xl bg-white border border-[#E6DACF] text-xs text-[#26201A] placeholder-[#A69B91] focus:outline-none focus:border-[#B84A2B] focus:ring-1 focus:ring-[#B84A2B] shadow-sm transition"></textarea>
+                        </div>
+
+                        <!-- Checkout CTA Button -->
+                        <button @onclick="ProceedToCheckout"
+                                disabled="@isCheckingOut"
+                                class="group w-full py-3.5 px-6 rounded-xl bg-[#B84A2B] hover:bg-[#A13E22] active:bg-[#8D351C] text-white font-medium text-xs tracking-wide transition-all shadow-md flex items-center justify-center space-x-2 disabled:opacity-75">
+                            @if (isCheckingOut)
+                            {
+                                <svg class="animate-spin -ml-1 mr-2 h-4 w-4 text-white" fill="none" viewBox="0 0 24 24">
+                                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z"></path>
+                                </svg>
+                                <span>Placing into the oven...</span>
+                            }
+                            else
+                            {
+                                <span>Proceed to checkout</span>
+                                <svg class="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                                </svg>
+                            }
+                        </button>
+
+                        <!-- Safe & secure tagline -->
+                        <div class="flex items-center justify-center space-x-1.5 text-[11px] text-[#7A6B61] pt-1">
+                            <svg class="w-3.5 h-3.5 text-[#5B8F57]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                            </svg>
+                            <span>Safe, secure & a few bites away.</span>
+                        </div>
+                    </div>
+
+                    <!-- Heart footnote -->
+                    <div class="flex items-start space-x-2.5 px-3 py-2 text-xs text-[#7A6B61]">
+                        <svg class="w-4 h-4 text-[#B84A2B] flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                        </svg>
+                        <p class="leading-relaxed text-[11px]">
+                            Every empanada is folded by hand, packed with care, and made for you.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        }
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="border-t border-[#E8DCD1] bg-[#FAF7F2] py-8 text-xs text-[#8A7B70] mt-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p>© 2026 Empanada Empire. Made with love in Cebu.</p>
+            <div class="flex items-center space-x-6">
+                <a href="/help" class="hover:text-[#B84A2B] transition-colors">Need a hand?</a>
+                <a href="/privacy" class="hover:text-[#B84A2B] transition-colors">Privacy policy</a>
+                <a href="/terms" class="hover:text-[#B84A2B] transition-colors">Terms of service</a>
+            </div>
+        </div>
+    </footer>
+</div>
+
+@code {
+    private ShoppingCart cart = new();
+    private bool isCheckingOut = false;
+
+    // Delivery details matching Image 1
+    private string customerName = "Maria Santos";
+    private string customerPhone = "+639171234567";
+    private DeliveryAddress customerAddress = new()
+    {
+        StreetAddress = "Unit 3B, 24 Salinas Drive, Barangay Lahug",
+        City = "Cebu City",
+        Country = "Philippines",
+        Landmark = "Near JY Square Mall"
+    };
+
+    protected override void OnInitialized()
+    {
+        // Seed items matching Image 1 (Total: 6 pieces, ₱395 subtotal + ₱49 delivery = ₱444)
+        cart.Items = new List<CartItem>
+        {
+            new()
+            {
+                ProductId = Guid.Parse("11111111-1111-1111-1111-111111111111"),
+                Name = "Classic Chicken",
+                UnitPrice = 65,
+                Quantity = 2,
+                ImageUrl = "images/classicchicken.png"
+            },
+            new()
+            {
+                ProductId = Guid.Parse("22222222-2222-2222-2222-222222222222"),
+                Name = "Savory Beef",
+                UnitPrice = 75,
+                Quantity = 2,
+                ImageUrl = "images/savorybeef.png"
+            },
+            new()
+            {
+                ProductId = Guid.Parse("33333333-3333-3333-3333-333333333333"),
+                Name = "Three-Cheese",
+                UnitPrice = 55,
+                Quantity = 1,
+                ImageUrl = "images/threecheese.png"
+            },
+            new()
+            {
+                ProductId = Guid.Parse("44444444-4444-4444-4444-444444444444"),
+                Name = "Ube & Cheese",
+                UnitPrice = 60,
+                Quantity = 1,
+                ImageUrl = "images/ubecheese.png"
+            }
+        };
+    }
+
+    private void IncrementItem(CartItem item)
+    {
+        item.Quantity++;
+    }
+
+    private void DecrementItem(Guid productId)
+    {
+        cart.DecrementOrRemove(productId);
+    }
+
+    private void RemoveItem(Guid productId)
+    {
+        cart.Remove(productId);
+    }
+
+    private async Task ProceedToCheckout()
+    {
+        isCheckingOut = true;
+
+        // Simulate checkout order generation
+        await Task.Delay(1000);
+
+        isCheckingOut = false;
+        Nav.NavigateTo("/orders");
+    }
+}
