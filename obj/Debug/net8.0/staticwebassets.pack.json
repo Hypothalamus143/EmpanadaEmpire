@@ -9,6 +9,38 @@
       "PackagePath": "staticwebassets\\app.css"
     },
     {
+      "Id": "C:\\Users\\L23Y16W03\\Downloads\\Sprint\\Midterms\\EmpanadaEmpireRevised\\EmpanadaEmpire\\wwwroot\\images\\classicchicken.png",
+      "PackagePath": "staticwebassets\\images\\classicchicken.png"
+    },
+    {
+      "Id": "C:\\Users\\L23Y16W03\\Downloads\\Sprint\\Midterms\\EmpanadaEmpireRevised\\EmpanadaEmpire\\wwwroot\\images\\freshempanadas.png",
+      "PackagePath": "staticwebassets\\images\\freshempanadas.png"
+    },
+    {
+      "Id": "C:\\Users\\L23Y16W03\\Downloads\\Sprint\\Midterms\\EmpanadaEmpireRevised\\EmpanadaEmpire\\wwwroot\\images\\garlicmushroom.png",
+      "PackagePath": "staticwebassets\\images\\garlicmushroom.png"
+    },
+    {
+      "Id": "C:\\Users\\L23Y16W03\\Downloads\\Sprint\\Midterms\\EmpanadaEmpireRevised\\EmpanadaEmpire\\wwwroot\\images\\meriendaspread.png",
+      "PackagePath": "staticwebassets\\images\\meriendaspread.png"
+    },
+    {
+      "Id": "C:\\Users\\L23Y16W03\\Downloads\\Sprint\\Midterms\\EmpanadaEmpireRevised\\EmpanadaEmpire\\wwwroot\\images\\savorybeef.png",
+      "PackagePath": "staticwebassets\\images\\savorybeef.png"
+    },
+    {
+      "Id": "C:\\Users\\L23Y16W03\\Downloads\\Sprint\\Midterms\\EmpanadaEmpireRevised\\EmpanadaEmpire\\wwwroot\\images\\spicytuna.png",
+      "PackagePath": "staticwebassets\\images\\spicytuna.png"
+    },
+    {
+      "Id": "C:\\Users\\L23Y16W03\\Downloads\\Sprint\\Midterms\\EmpanadaEmpireRevised\\EmpanadaEmpire\\wwwroot\\images\\threecheese.png",
+      "PackagePath": "staticwebassets\\images\\threecheese.png"
+    },
+    {
+      "Id": "C:\\Users\\L23Y16W03\\Downloads\\Sprint\\Midterms\\EmpanadaEmpireRevised\\EmpanadaEmpire\\wwwroot\\images\\ubecheese.png",
+      "PackagePath": "staticwebassets\\images\\ubecheese.png"
+    },
+    {
       "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.EmpanadaEmpire.Microsoft.AspNetCore.StaticWebAssets.props",
       "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
     },
